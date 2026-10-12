@@ -1,0 +1,432 @@
+/* ========================================
+   HARVEY NGO - MEDIEVAL TAVERN PORTFOLIO
+======================================== */
+
+:root {
+    --bg: #17130f;
+    --surface: #211a14;
+    --surface-light: #2c2118;
+    --text: #e8dcc5;
+    --muted: #b4a48c;
+    --gold: #c49a58;
+    --gold-light: #dfbd80;
+    --border: #51402c;
+    --wood: #382719;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 24px;
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            #3a291b 0%,
+            transparent 55%
+        ),
+        var(--bg);
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+/* Subtle aged-paper texture effect */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.12;
+    background-image:
+        radial-gradient(#c49a58 0.5px, transparent 0.5px);
+    background-size: 9px 9px;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1080px, 88%);
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Cinzel', Georgia, serif;
+    font-weight: 500;
+    line-height: 1.35;
+}
+
+.accent {
+    color: var(--gold);
+}
+
+/* ========================================
+   HEADER - THE TAVERN SIGN
+======================================== */
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 80px 0 65px;
+    position: relative;
+}
+
+.eyebrow,
+.section-label,
+.project-type {
+    color: var(--gold);
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+}
+
+.eyebrow {
+    margin: 0;
+}
+
+h1 {
+    font-size: clamp(3rem, 8vw, 5.8rem);
+    letter-spacing: 0.025em;
+    margin: 18px 0 10px;
+    color: #f0e1c5;
+    text-shadow: 2px 3px 0 #00000055;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* Simple carved-wood divider */
+
+.fantasy-divider {
+    margin-top: 25px;
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+}
+
+.fantasy-divider span {
+    color: var(--gold-light);
+}
+
+/* Navigation - old wooden signboards */
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+nav a {
+    padding: 9px 18px;
+    border: 1px solid var(--border);
+    background: linear-gradient(
+        180deg,
+        #392a1c,
+        #261b12
+    );
+    color: var(--gold-light);
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease;
+}
+
+nav a:hover {
+    background: #4a3420;
+    border-color: var(--gold);
+    color: #fff0d0;
+}
+
+.scroll-link {
+    margin-top: 28px;
+    color: var(--gold);
+    font-style: italic;
+    transition: color 0.25s ease;
+}
+
+.scroll-link:hover {
+    color: var(--gold-light);
+}
+
+/* ========================================
+   SECTIONS - PARCHMENT AND IRON
+======================================== */
+
+.section {
+    padding: 70px 0;
+    border-top: 1px solid var(--border);
+    position: relative;
+}
+
+.section::before {
+    content: "◆";
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 14px;
+    color: var(--gold);
+    background: var(--bg);
+    font-size: 0.7rem;
+}
+
+.section h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin: 12px 0 22px;
+    color: #e8dcc5;
+}
+
+.about p,
+.section-intro {
+    max-width: 700px;
+    color: var(--muted);
+    font-size: 1.12rem;
+}
+
+.section-intro {
+    margin-bottom: 30px;
+}
+
+/* ========================================
+   ARTWORK - FRAMED LIKE TROPHIES IN A TAVERN
+======================================== */
+
+.artwork {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 35px;
+}
+
+.art-card {
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow:
+        0 8px 20px #00000035,
+        inset 0 0 0 3px #00000015;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.art-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 26px #00000050;
+}
+
+/* Artwork display */
+
+.art-image {
+    overflow: hidden;
+    background: #241b14;
+    border-bottom: 1px solid var(--border);
+}
+
+.art-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #241b14;
+    transition: transform 0.45s ease;
+    filter: sepia(0.08) saturate(0.9);
+}
+
+.art-card:hover img {
+    transform: scale(1.025);
+    filter: sepia(0) saturate(1);
+}
+
+/* Artwork information */
+
+.art-info {
+    padding: 22px 24px 26px;
+    background:
+        linear-gradient(
+            135deg,
+            #2d2117,
+            #211912
+        );
+    border-top: 1px solid #6a4e2b40;
+}
+
+.project-type {
+    font-size: 0.68rem;
+    color: var(--gold);
+}
+
+.art-info h3 {
+    font-size: 1.25rem;
+    margin: 9px 0;
+    color: #eadcc2;
+}
+
+.art-info p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* ========================================
+   COMING SOON - THE EMPTY QUEST BOARD
+======================================== */
+
+.placeholder-card {
+    grid-column: 1 / -1;
+}
+
+.coming-soon {
+    min-height: 210px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background:
+        linear-gradient(
+            135deg,
+            #38291c,
+            #241a13
+        );
+    color: var(--gold-light);
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+}
+
+.magic-symbol {
+    font-size: 2.7rem;
+    font-family: Georgia, serif;
+    color: var(--gold);
+    opacity: 0.85;
+}
+
+.coming-text {
+    text-align: center;
+}
+
+/* ========================================
+   FOOTER - LAST CALL AT THE TAVERN
+======================================== */
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 30px 0 42px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+.footer-divider {
+    color: var(--gold);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 18px;
+    opacity: 0.75;
+}
+
+.back-to-top {
+    color: var(--gold-light);
+    font-family: 'Cinzel', Georgia, serif;
+    font-size: 0.8rem;
+    transition: color 0.25s ease;
+}
+
+.back-to-top:hover {
+    color: #f0dfbd;
+}
+
+.footer-note {
+    font-style: italic;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 650px) {
+    .container {
+        width: 90%;
+    }
+
+    .hero {
+        min-height: 420px;
+        padding: 60px 0 50px;
+    }
+
+    .section {
+        padding: 52px 0;
+    }
+
+    .artwork {
+        grid-template-columns: 1fr;
+    }
+
+    .placeholder-card {
+        grid-column: auto;
+    }
+
+    nav {
+        gap: 9px;
+    }
+
+    nav a {
+        padding: 8px 12px;
+    }
+
+    .fantasy-divider {
+        font-size: 0.7rem;
+    }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition-duration: 0.01ms !important;
+    }
+}
